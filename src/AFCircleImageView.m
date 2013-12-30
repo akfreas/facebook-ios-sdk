@@ -1,14 +1,14 @@
-#import "CircleImageView.h"
-#import "CircleImageLayer.h"
+#import "AFCircleImageView.h"
+#import "AFCircleImageLayer.h"
 #import <CoreGraphics/CoreGraphics.h>
-@implementation CircleImageView {
+@implementation AFCircleImageView {
     
-    CircleImageLayer *circleLayer;
+    AFCircleImageLayer *circleLayer;
 }
 
 
 +(Class)layerClass {
-    return [CircleImageLayer class];
+    return [AFCircleImageLayer class];
 }
 
 -(id)initWithImage:(UIImage *)theImage radius:(CGFloat)theRadius {
@@ -18,32 +18,32 @@
         self.radius = theRadius;
         self.backgroundColor = [UIColor clearColor];
         self.contentScaleFactor = [UIScreen mainScreen].scale;
-        [(CircleImageLayer *)self.layer setRadius:theRadius];
-        [(CircleImageLayer *)self.layer setImage:theImage];
-        [(CircleImageLayer *)self.layer setBorderWidth:1.0f];
+        [(AFCircleImageLayer *)self.layer setRadius:theRadius];
+        [(AFCircleImageLayer *)self.layer setImage:theImage];
+        [(AFCircleImageLayer *)self.layer setBorderWidth:1.0f];
     }
     return self;
 }
 
 -(void)setImage:(UIImage *)image {
-    [(CircleImageLayer *)self.layer setImage:image];
+    [(AFCircleImageLayer *)self.layer setImage:image];
 }
 
 -(UIImage *)image {
-    return [(CircleImageLayer *)self.layer valueForKey:@"image"];
+    return [(AFCircleImageLayer *)self.layer valueForKey:@"image"];
 }
 
 -(void)setRadius:(CGFloat)radius {
     _radius = radius;
-    [(CircleImageLayer *)self.layer setRadius:radius];
+    [(AFCircleImageLayer *)self.layer setRadius:radius];
 }
 
 -(void)setBorderWidth:(CGFloat)borderWidth {
-    [(CircleImageLayer *)self.layer setBorderWidth:borderWidth];
+    [(AFCircleImageLayer *)self.layer setBorderWidth:borderWidth];
 }
 
 -(void)setBorderColor:(UIColor *)borderColor {
-    [(CircleImageLayer *)self.layer setBorderColor:borderColor.CGColor];
+    [(AFCircleImageLayer *)self.layer setBorderColor:borderColor.CGColor];
 }
 
 -(void)layoutSubviews {

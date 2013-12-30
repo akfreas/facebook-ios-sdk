@@ -15,7 +15,7 @@
  */
 
 #import "FBGraphObjectTableCell.h"
-#import "CircleImageView.m"
+#import "AFCircleImageView.h"
 
 static const CGFloat titleFontHeight = 18;
 static const CGFloat subtitleFontHeight = 12;
@@ -30,7 +30,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 
 @interface FBGraphObjectTableCell()
 
-@property (nonatomic, retain) CircleImageView *pictureView;\
+@property (nonatomic, retain) AFCircleImageView *pictureView;\
 @property (nonatomic, retain) UILabel* titleSuffixLabel;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) UISwitch *selectedSwitch;
@@ -55,7 +55,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Picture
-        CircleImageView *pictureView = [[CircleImageView alloc] initWithImage:nil radius:pictureEdge/2];
+        AFCircleImageView *pictureView = [[AFCircleImageView alloc] initWithImage:nil radius:pictureEdge/2];
         pictureView.clipsToBounds = YES;
         pictureView.contentMode = UIViewContentModeScaleAspectFill;
 

@@ -1,6 +1,6 @@
-#import "CircleImageLayer.h"
+#import "AFCircleImageLayer.h"
 
-@implementation CircleImageLayer {
+@implementation AFCircleImageLayer {
     
 
     CGFloat _radius;
@@ -49,8 +49,8 @@
 
 -(id)initWithLayer:(id)layer {
     if (self = [super initWithLayer:layer]) {
-        if ([layer isKindOfClass:[CircleImageLayer class]]) {
-            CircleImageLayer *imageLayer = (CircleImageLayer *)layer;
+        if ([layer isKindOfClass:[AFCircleImageLayer class]]) {
+            AFCircleImageLayer *imageLayer = (AFCircleImageLayer *)layer;
             self.image = imageLayer.image;
         }
     }

@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface CircleImageView : UIView
+@interface AFCircleImageView : UIView
 
 @property (nonatomic, retain) UIImage *image;
 @property (assign, nonatomic) CGFloat radius;

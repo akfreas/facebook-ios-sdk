@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1964649818713F07008E1A71 /* CircleImageLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1964649418713F07008E1A71 /* CircleImageLayer.h */; };
-		1964649918713F07008E1A71 /* CircleImageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964649518713F07008E1A71 /* CircleImageLayer.m */; };
-		1964649A18713F07008E1A71 /* CircleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1964649618713F07008E1A71 /* CircleImageView.h */; };
-		1964649B18713F07008E1A71 /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964649718713F07008E1A71 /* CircleImageView.m */; };
+		1964649818713F07008E1A71 /* AFCircleImageLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1964649418713F07008E1A71 /* AFCircleImageLayer.h */; };
+		1964649918713F07008E1A71 /* AFCircleImageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964649518713F07008E1A71 /* AFCircleImageLayer.m */; };
+		1964649A18713F07008E1A71 /* AFCircleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1964649618713F07008E1A71 /* AFCircleImageView.h */; };
+		1964649B18713F07008E1A71 /* AFCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964649718713F07008E1A71 /* AFCircleImageView.m */; };
 		1964649D1871421B008E1A71 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5F11B1552FD3C00A55DDC /* CoreGraphics.framework */; };
 		2A68590615C1E37E001D4EDD /* FBSettings+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A68590515C1E37E001D4EDD /* FBSettings+Internal.h */; };
 		5F0572B916156625008B54E6 /* FBAppEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0572B716156625008B54E6 /* FBAppEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -456,10 +456,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1964649418713F07008E1A71 /* CircleImageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageLayer.h; sourceTree = "<group>"; };
-		1964649518713F07008E1A71 /* CircleImageLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageLayer.m; sourceTree = "<group>"; };
-		1964649618713F07008E1A71 /* CircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
-		1964649718713F07008E1A71 /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
+		1964649418713F07008E1A71 /* AFCircleImageLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCircleImageLayer.h; sourceTree = "<group>"; };
+		1964649518713F07008E1A71 /* AFCircleImageLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCircleImageLayer.m; sourceTree = "<group>"; };
+		1964649618713F07008E1A71 /* AFCircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCircleImageView.h; sourceTree = "<group>"; };
+		1964649718713F07008E1A71 /* AFCircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCircleImageView.m; sourceTree = "<group>"; };
 		2A68590515C1E37E001D4EDD /* FBSettings+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBSettings+Internal.h"; sourceTree = "<group>"; };
 		5F0572B716156625008B54E6 /* FBAppEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAppEvents.h; sourceTree = "<group>"; };
 		5F0572B816156625008B54E6 /* FBAppEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FBAppEvents.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -973,10 +973,10 @@
 		1964649C18713F0E008E1A71 /* Circle Image */ = {
 			isa = PBXGroup;
 			children = (
-				1964649418713F07008E1A71 /* CircleImageLayer.h */,
-				1964649518713F07008E1A71 /* CircleImageLayer.m */,
-				1964649618713F07008E1A71 /* CircleImageView.h */,
-				1964649718713F07008E1A71 /* CircleImageView.m */,
+				1964649418713F07008E1A71 /* AFCircleImageLayer.h */,
+				1964649518713F07008E1A71 /* AFCircleImageLayer.m */,
+				1964649618713F07008E1A71 /* AFCircleImageView.h */,
+				1964649718713F07008E1A71 /* AFCircleImageView.m */,
 			);
 			name = "Circle Image";
 			sourceTree = "<group>";
@@ -1313,7 +1313,7 @@
 				B5E946E016D84FB700D55A25 /* FBAppBridgeTypeToJSONConverter.h in Headers */,
 				8582701716E02E6000795734 /* FBOpenGraphActionShareDialogParams.h in Headers */,
 				B5B4C19916F3C8B7006FF55B /* FBDialogs+Internal.h in Headers */,
-				1964649818713F07008E1A71 /* CircleImageLayer.h in Headers */,
+				1964649818713F07008E1A71 /* AFCircleImageLayer.h in Headers */,
 				841FA0C416DFF934002A51EA /* FBFrictionlessRecipientCache.h in Headers */,
 				841FA0C816E1236F002A51EA /* FBFrictionlessDialogSupportDelegate.h in Headers */,
 				B5B4C1C516F7AAA1006FF55B /* FBLoginDialogParams.h in Headers */,
@@ -1325,7 +1325,7 @@
 				B5E8DC37170C22FC009A4590 /* FBDialogsData+Internal.h in Headers */,
 				B59DA053170CE02300955BCD /* FBAppLinkData.h in Headers */,
 				B59DA057170CE02300955BCD /* FBAppLinkData+Internal.h in Headers */,
-				1964649A18713F07008E1A71 /* CircleImageView.h in Headers */,
+				1964649A18713F07008E1A71 /* AFCircleImageView.h in Headers */,
 				9D5D2996170F788A00FA5899 /* FBErrorUtility.h in Headers */,
 				84C1E2001717DD010037E406 /* FBDialogs.h in Headers */,
 				84C1E2131718830F0037E406 /* FBOpenGraphObject.h in Headers */,
@@ -1749,7 +1749,7 @@
 				E28B75551547D85A002E30C0 /* FBFriendPickerViewController.m in Sources */,
 				E2B99CF21549CD7F002AEA86 /* FBGraphObjectTableDataSource.m in Sources */,
 				E2B99CF61549E02A002AEA86 /* FBGraphObjectTableSelection.m in Sources */,
-				1964649B18713F07008E1A71 /* CircleImageView.m in Sources */,
+				1964649B18713F07008E1A71 /* AFCircleImageView.m in Sources */,
 				5F7CB4211553ACC600C183CF /* FBLogger.m in Sources */,
 				E2223AEC1554573900126FD2 /* FBPlacePickerViewController.m in Sources */,
 				85954B87155B452E00FABA9A /* FBGraphObjectPagingLoader.m in Sources */,
@@ -1786,7 +1786,7 @@
 				84C1E2071717DD100037E406 /* FBDialogs.m in Sources */,
 				9942280E174C1EBF0096A70C /* FBDynamicFrameworkLoader.m in Sources */,
 				99A90A33176BC72D0025A7F7 /* FBImageResourceLoader.m in Sources */,
-				1964649918713F07008E1A71 /* CircleImageLayer.m in Sources */,
+				1964649918713F07008E1A71 /* AFCircleImageLayer.m in Sources */,
 				5FC7ABA8178C7A8E00829DD1 /* FBInsights.m in Sources */,
 				9D366B16178C7468007B4CEC /* FBRequestMetadata.m in Sources */,
 				9D366B21178C7798007B4CEC /* FBRequestHandlerFactory.m in Sources */,

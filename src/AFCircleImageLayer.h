@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <QuartzCore/QuartzCore.h>
-@interface CircleImageLayer : CALayer
+@interface AFCircleImageLayer : CALayer
 
 
 @property (nonatomic, retain) UIImage *image;
