@@ -522,7 +522,6 @@ static const NSInteger kMinimumCountToCollate = 6;
         cell.picture = nil;
         cell.subtitle = nil;
         cell.title = nil;
-        cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selected = NO;
 
         [cell startAnimatingActivityIndicator];
@@ -560,10 +559,8 @@ static const NSInteger kMinimumCountToCollate = 6;
 
             if ([self.selectionDelegate graphObjectTableDataSource:self
                                              selectionIncludesItem:item]) {
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 cell.selected = YES;
             } else {
-                cell.accessoryType = UITableViewCellAccessoryNone;
                 cell.selected = NO;
             }
 
@@ -575,7 +572,6 @@ static const NSInteger kMinimumCountToCollate = 6;
             cell.picture = nil;
             cell.subtitle = nil;
             cell.title = nil;
-            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selected = NO;
         }
     }
