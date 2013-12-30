@@ -87,7 +87,7 @@
         self.selection = selection;
         [selection release];
     }
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.selected = YES;
     if (raiseSelectionChanged) {
         [self selectionChanged];
     }
@@ -122,7 +122,7 @@
         self.selection = selection;
         [selection release];
     }
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.selected = NO;
     if (raiseSelectionChanged) {
         [self selectionChanged];
     }
