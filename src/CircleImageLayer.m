@@ -42,7 +42,6 @@
     self = [self initWithRadius:theRadius];
     if (self) {
         _image = theImage;
-//        [self drawImageInHostingLayer];
     }
     
     return self;
@@ -98,6 +97,9 @@
 }
 
 -(void)setImage:(UIImage *)image {
+    if (_image != nil) {
+        [_image release];
+    }
     _image = [image retain];
     [self setNeedsDisplay];
 }
