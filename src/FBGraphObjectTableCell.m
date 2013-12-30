@@ -15,11 +15,12 @@
  */
 
 #import "FBGraphObjectTableCell.h"
+#import "CircleImageView.m"
 
-static const CGFloat titleFontHeight = 16;
+static const CGFloat titleFontHeight = 18;
 static const CGFloat subtitleFontHeight = 12;
-static const CGFloat pictureEdge = 40;
-static const CGFloat pictureMargin = 1;
+static const CGFloat pictureEdge = 50;
+static const CGFloat pictureMargin = 5;
 static const CGFloat horizontalMargin = 4;
 static const CGFloat titleTopNoSubtitle = 11;
 static const CGFloat titleTopWithSubtitle = 3;
@@ -29,9 +30,10 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 
 @interface FBGraphObjectTableCell()
 
-@property (nonatomic, retain) UIImageView *pictureView;\
+@property (nonatomic, retain) CircleImageView *pictureView;\
 @property (nonatomic, retain) UILabel* titleSuffixLabel;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, retain) UISwitch *selectedSwitch;
 
 - (void)updateFonts;
 
@@ -53,7 +55,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Picture
-        UIImageView *pictureView = [[UIImageView alloc] init];
+        CircleImageView *pictureView = [[CircleImageView alloc] initWithImage:nil radius:pictureEdge/2];
         pictureView.clipsToBounds = YES;
         pictureView.contentMode = UIViewContentModeScaleAspectFill;
 
@@ -102,10 +104,16 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
     CGSize cellSize = self.contentView.bounds.size;
     CGFloat textLeft = (hasPicture ? ((2 * pictureMargin) + pictureWidth) : 0) + horizontalMargin;
     CGFloat textWidth = cellSize.width - (textLeft + horizontalMargin);
-    CGFloat titleTop = hasSubtitle ? titleTopWithSubtitle : titleTopNoSubtitle;
-
-    self.pictureView.frame = CGRectMake(pictureMargin, pictureMargin, pictureEdge, pictureWidth);
+    CGFloat titleTop = hasSubtitle ? titleTopWithSubtitle : self.contentView.frame.size.height / 2 - titleHeight / 2;
+    
+    CGFloat switchWidth = self.selectedSwitch.bounds.size.width;
+    CGFloat switchHeight = self.selectedSwitch.bounds.size.height;
+    CGFloat switchRightMargin = 5.0f;
+    
+    self.pictureView.frame = CGRectMake(pictureMargin, pictureMargin, pictureWidth, pictureEdge);
     self.detailTextLabel.frame = CGRectMake(textLeft, subtitleTop, textWidth, subtitleHeight);
+    self.selectedSwitch.frame = CGRectMake(self.contentView.bounds.size.width - switchWidth - switchRightMargin, self.contentView.bounds.size.height/2 - switchHeight/2, switchWidth, switchHeight);
+    self.selectedSwitch.on = self.selected;
     if (!hasTitleSuffix) {
         self.textLabel.frame = CGRectMake(textLeft, titleTop, textWidth, titleHeight);
     } else {
@@ -155,19 +163,12 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 }
 
 - (void)updateFonts {
-    if (self.boldTitle) {
-        self.textLabel.font = [UIFont boldSystemFontOfSize:titleFontHeight];
-    } else {
-        self.textLabel.font = [UIFont systemFontOfSize:titleFontHeight];
-    }
-
-    if (self.boldTitleSuffix) {
-        self.titleSuffixLabel.font = [UIFont boldSystemFontOfSize:titleFontHeight];
-    } else {
-        self.titleSuffixLabel.font = [UIFont systemFontOfSize:titleFontHeight];
-    }
+    self.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:titleFontHeight];
+    self.titleSuffixLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:titleFontHeight];
+    self.titleSuffixLabel.textColor = self.textLabel.textColor = [UIColor colorWithRed:74.0f/255.0f green:74.0f/255.0f blue:74.0f/255.0f alpha:1];
+    [self.titleSuffixLabel sizeToFit];
+    [self.textLabel sizeToFit];
 }
-
 - (void)createTitleSuffixLabel {
     if (!self.titleSuffixLabel) {
         UILabel *titleSuffixLabel = [[UILabel alloc] init];
@@ -178,7 +179,26 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
         [titleSuffixLabel release];
     }
 }
+
+-(void)addSelectedSwitch {
+    UISwitch *selectedSwitch = [[UISwitch alloc] init];
+    self.selectedSwitch = selectedSwitch;
+    self.selectedSwitch.userInteractionEnabled = NO;
+    [selectedSwitch release];
+    [self.contentView addSubview:self.selectedSwitch];
+}
+
 #pragma mark - Properties
+
+-(void)setSelected:(BOOL)selected {
+    if (self.selectedSwitch == nil) {
+        [self addSelectedSwitch];
+    }
+    if (self.selectedSwitch.isOn != selected) {
+        self.selectedSwitch.on = selected;
+    }
+    [super setSelected:selected];
+}
 
 - (UIImage *)picture
 {
