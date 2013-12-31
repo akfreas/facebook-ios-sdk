@@ -554,6 +554,7 @@ static const NSInteger kMinimumCountToCollate = 6;
             }
             
             if (self.indicateUserBirthday) {
+                cell.indicateHasBirthday = self.indicateUserBirthday;
                 cell.hasBirthday = [self.controllerDelegate graphObjectTableDataSource:self itemHasBirthday:item];
             }
 

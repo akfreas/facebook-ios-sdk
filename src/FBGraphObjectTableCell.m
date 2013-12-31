@@ -49,6 +49,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 @synthesize boldTitle = _boldTitle;
 @synthesize boldTitleSuffix = _boldTitleSuffix;
 @synthesize hasBirthday = _hasBirthday;
+@synthesize indicateHasBirthday = _indicateHasBirthday;
 
 #pragma mark - Lifecycle
 
@@ -117,10 +118,12 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
     self.detailTextLabel.frame = CGRectMake(textLeft, subtitleTop, textWidth, subtitleHeight);
     self.selectedSwitch.frame = CGRectMake(self.contentView.bounds.size.width - switchWidth - switchRightMargin, self.contentView.bounds.size.height/2 - switchHeight/2, switchWidth, switchHeight);
     self.selectedSwitch.on = self.selected;
-    if (self.hasBirthday) {
-        self.selectedSwitch.thumbTintColor = [UIColor colorWithPatternImage:[HasBirthdaySwitchIndicatorPNG image]];
-    } else {
-        self.selectedSwitch.thumbTintColor =  [UIColor colorWithPatternImage:[NoBirthdaySwitchIndicatorPNG image]];
+    if (self.indicateHasBirthday) {
+        if (self.hasBirthday) {
+            self.selectedSwitch.thumbTintColor = [UIColor colorWithPatternImage:[HasBirthdaySwitchIndicatorPNG image]];
+        } else {
+            self.selectedSwitch.thumbTintColor =  [UIColor colorWithPatternImage:[NoBirthdaySwitchIndicatorPNG image]];
+        }
     }
     if (!hasTitleSuffix) {
         self.textLabel.frame = CGRectMake(textLeft, titleTop, textWidth, titleHeight);
