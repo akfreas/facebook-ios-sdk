@@ -30,6 +30,7 @@
 @property (nonatomic, copy) NSString *groupByField;
 @property (nonatomic, assign) BOOL useCollation;
 @property (nonatomic) BOOL itemTitleSuffixEnabled;
+@property (nonatomic) BOOL indicateUserBirthday;
 @property (nonatomic) BOOL itemPicturesEnabled;
 @property (nonatomic) BOOL itemSubtitleEnabled;
 @property (nonatomic, assign) id<FBGraphObjectSelectionQueryDelegate> selectionDelegate;
@@ -83,6 +84,8 @@
 
 - (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource
                 filterIncludesItem:(id<FBGraphObject>)item;
+
+- (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource itemHasBirthday:(id<FBGraphObject>)graphUser;
 
 - (void)graphObjectTableDataSource:(FBGraphObjectTableDataSource*)dataSource
                 customizeTableCell:(FBGraphObjectTableCell*)cell;

@@ -530,7 +530,6 @@ static const NSInteger kMinimumCountToCollate = 6;
                                                 triggeredByIndexPath:indexPath];
     } else {
         FBGraphObject *item = [self itemAtIndexPath:indexPath];
-
         // This is a no-op if it doesn't have an activity indicator.
         [cell stopAnimatingActivityIndicator];
         if (item) {
@@ -552,6 +551,10 @@ static const NSInteger kMinimumCountToCollate = 6;
                                                                      subtitleOfItem:item];
             } else {
                 cell.subtitle = nil;
+            }
+            
+            if (self.indicateUserBirthday) {
+                cell.hasBirthday = [self.controllerDelegate graphObjectTableDataSource:self itemHasBirthday:item];
             }
 
             cell.title = [self.controllerDelegate graphObjectTableDataSource:self
