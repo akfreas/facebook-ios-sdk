@@ -24,7 +24,7 @@
 @property (copy, nonatomic) NSString *titleSuffix;
 @property (nonatomic) BOOL boldTitle;
 @property (nonatomic) BOOL boldTitleSuffix;
-
+@property (nonatomic) BOOL hasBirthday;
 @property (copy, nonatomic) NSString *subtitle;
 @property (retain, nonatomic) UIImage *picture;
 

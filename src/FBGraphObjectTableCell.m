@@ -16,6 +16,8 @@
 
 #import "FBGraphObjectTableCell.h"
 #import "AFCircleImageView.h"
+#import "NoBirthdaySwitchIndicatorPNG.h"
+#import "HasBirthdaySwitchIndicatorPNG.h"
 
 static const CGFloat titleFontHeight = 18;
 static const CGFloat subtitleFontHeight = 12;
@@ -30,7 +32,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 
 @interface FBGraphObjectTableCell()
 
-@property (nonatomic, retain) AFCircleImageView *pictureView;\
+@property (nonatomic, retain) AFCircleImageView *pictureView;
 @property (nonatomic, retain) UILabel* titleSuffixLabel;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) UISwitch *selectedSwitch;
@@ -46,6 +48,7 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize boldTitle = _boldTitle;
 @synthesize boldTitleSuffix = _boldTitleSuffix;
+@synthesize hasBirthday = _hasBirthday;
 
 #pragma mark - Lifecycle
 
@@ -114,6 +117,11 @@ static const CGFloat subtitleHeight = subtitleFontHeight * 1.25;
     self.detailTextLabel.frame = CGRectMake(textLeft, subtitleTop, textWidth, subtitleHeight);
     self.selectedSwitch.frame = CGRectMake(self.contentView.bounds.size.width - switchWidth - switchRightMargin, self.contentView.bounds.size.height/2 - switchHeight/2, switchWidth, switchHeight);
     self.selectedSwitch.on = self.selected;
+    if (self.hasBirthday) {
+        self.selectedSwitch.thumbTintColor = [UIColor colorWithPatternImage:[HasBirthdaySwitchIndicatorPNG image]];
+    } else {
+        self.selectedSwitch.thumbTintColor =  [UIColor colorWithPatternImage:[NoBirthdaySwitchIndicatorPNG image]];
+    }
     if (!hasTitleSuffix) {
         self.textLabel.frame = CGRectMake(textLeft, titleTop, textWidth, titleHeight);
     } else {
