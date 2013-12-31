@@ -270,6 +270,16 @@ typedef enum {
  */
 - (void)friendPickerViewControllerSelectionDidChange:(FBFriendPickerViewController *)friendPicker;
 
+
+/*!
+ @abstract
+ Tells the delegate that the selection is about to change.
+ 
+ @param friendPicker        The friend picker view controller whose selection is about to change.
+ */
+
+- (void)friendPickerViewControllerSelectionWillChange:(FBFriendPickerViewController *)friendPicker;
+
 /*!
  @abstract
  Asks the delegate whether to include a friend in the list.
