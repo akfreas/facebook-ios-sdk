@@ -31,7 +31,8 @@
                     cell:(UITableViewCell *)cell
    raiseSelectionChanged:(BOOL) raiseSelectionChanged;
 
-- (void)selectionChanged;
+- (void)selectionDidChange;
+- (void)selectionWillChange;
 
 @end
 
@@ -72,8 +73,9 @@
 
 - (void)clearSelectionInTableView:(UITableView*)tableView {
     if (self.selection.count > 0) {
+        [self selectionWillChange];
         [self deselectItems:self.selection tableView:tableView];
-        [self selectionChanged];
+        [self selectionDidChange];
     }
 }
 
@@ -82,6 +84,9 @@
    raiseSelectionChanged:(BOOL) raiseSelectionChanged
 {
     if ([FBUtility graphObjectInArray:self.selection withSameIDAs:item] == nil) {
+        if (raiseSelectionChanged) {
+            [self selectionWillChange];
+        }
         NSMutableArray *selection = [[NSMutableArray alloc] initWithArray:self.selection];
         [selection addObject:item];
         self.selection = selection;
@@ -89,7 +94,7 @@
     }
     cell.selected = YES;
     if (raiseSelectionChanged) {
-        [self selectionChanged];
+        [self selectionDidChange];
     }
 }
 
@@ -117,6 +122,7 @@
 {
     id<FBGraphObject> selectedItem = [FBUtility graphObjectInArray:self.selection withSameIDAs:item];
     if (selectedItem) {
+        [self selectionWillChange];
         NSMutableArray *selection = [[NSMutableArray alloc] initWithArray:self.selection];
         [selection removeObject:selectedItem];
         self.selection = selection;
@@ -124,7 +130,7 @@
     }
     cell.selected = NO;
     if (raiseSelectionChanged) {
-        [self selectionChanged];
+        [self selectionDidChange];
     }
 }
 
@@ -146,7 +152,14 @@
     }
 }
 
-- (void)selectionChanged
+
+- (void)selectionWillChange {
+    if ([self.delegate respondsToSelector:@selector(graphObjectTableSelectionWillChange:)]) {
+        [(id)self.delegate graphObjectTableSelectionWillChange:self];
+    }
+}
+
+- (void)selectionDidChange
 {
     if ([self.delegate respondsToSelector:
          @selector(graphObjectTableSelectionDidChange:)]) {
