@@ -35,5 +35,6 @@
 @protocol FBGraphObjectSelectionChangedDelegate <NSObject>
 
 - (void)graphObjectTableSelectionDidChange:(FBGraphObjectTableSelection *)selection;
+- (void)graphObjectTableSelectionWillChange:(FBGraphObjectTableSelection *)selection;
 
 @end
