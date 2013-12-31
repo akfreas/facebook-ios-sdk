@@ -232,6 +232,16 @@
  */
 - (void)placePickerViewControllerSelectionDidChange:(FBPlacePickerViewController *)placePicker;
 
+
+/*!
+ @abstract
+ Tells the delegate that the selection will change.
+ 
+ @param placePicker   The place picker view controller whose selection will change.
+ */
+- (void)placePickerViewControllerSelectionWillChange:(FBPlacePickerViewController *)placePicker;
+
+
 /*!
  @abstract
  Asks the delegate whether to include a place in the list.

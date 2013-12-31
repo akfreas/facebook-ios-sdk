@@ -442,6 +442,12 @@ const NSInteger defaultRadius = 1000; // 1km
     }
 }
 
+-(void)graphObjectTableSelectionWillChange:(FBGraphObjectTableSelection *)selection {
+    if ([self.delegate respondsToSelector:@selector(placePickerViewControllerSelectionWillChange:)]) {
+        [(id)self.delegate placePickerViewControllerSelectionWillChange:self];
+    }
+}
+
 #pragma mark - FBGraphObjectViewControllerDelegate
 
 - (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource
