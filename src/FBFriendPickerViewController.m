@@ -169,6 +169,14 @@ int const FBRefreshCacheDelaySeconds = 2;
     }
 }
 
+-(void)setIndicateUserBirthday:(BOOL)indicateUserBirthday {
+    self.dataSource.indicateUserBirthday = indicateUserBirthday;
+}
+
+-(BOOL)indicateUserBirthday {
+    return self.dataSource.indicateUserBirthday;
+}
+
 - (BOOL)itemPicturesEnabled {
     return self.dataSource.itemPicturesEnabled;
 }
@@ -394,6 +402,7 @@ int const FBRefreshCacheDelaySeconds = 2;
                            @"first_name",
                            @"middle_name",
                            @"last_name",
+                           @"birthday",
                            pictureField,
                            nil];
     [request.parameters setObject:allFields forKey:@"fields"];
@@ -438,6 +447,14 @@ int const FBRefreshCacheDelaySeconds = 2;
                                        shouldIncludeUser:user];
     } else {
         return YES;
+    }
+}
+
+- (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource itemHasBirthday:(id<FBGraphUser>)graphUser {
+    if (graphUser.birthday != nil) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 

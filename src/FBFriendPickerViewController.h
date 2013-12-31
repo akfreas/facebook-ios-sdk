@@ -123,6 +123,13 @@ typedef enum {
 
 /*!
  @abstract
+ A boolean value that determines whether or not the tableview should indicate
+ the FBGraphUser is shown as having no birthday.
+ */
+@property (nonatomic) BOOL indicateUserBirthday;
+
+/*!
+ @abstract
  The list of friends that are currently selected in the veiw.
  The items in the array are <FBGraphUser> objects.
 
