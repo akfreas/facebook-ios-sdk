@@ -12,6 +12,8 @@
 		1964649A18713F07008E1A71 /* AFCircleImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1964649618713F07008E1A71 /* AFCircleImageView.h */; };
 		1964649B18713F07008E1A71 /* AFCircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1964649718713F07008E1A71 /* AFCircleImageView.m */; };
 		1964649D1871421B008E1A71 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B5F11B1552FD3C00A55DDC /* CoreGraphics.framework */; };
+		19FCB69318731D7A00F9D30B /* NoBirthdaySwitchIndicator.png in Sources */ = {isa = PBXBuildFile; fileRef = 19FCB69118731BF600F9D30B /* NoBirthdaySwitchIndicator.png */; };
+		19FCB6BB187334C900F9D30B /* HasBirthdaySwitchIndicator.png in Sources */ = {isa = PBXBuildFile; fileRef = 19FCB6BA1873347600F9D30B /* HasBirthdaySwitchIndicator.png */; };
 		2A68590615C1E37E001D4EDD /* FBSettings+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A68590515C1E37E001D4EDD /* FBSettings+Internal.h */; };
 		5F0572B916156625008B54E6 /* FBAppEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0572B716156625008B54E6 /* FBAppEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0572BA16156625008B54E6 /* FBAppEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0572B816156625008B54E6 /* FBAppEvents.m */; };
@@ -460,6 +462,8 @@
 		1964649518713F07008E1A71 /* AFCircleImageLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCircleImageLayer.m; sourceTree = "<group>"; };
 		1964649618713F07008E1A71 /* AFCircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCircleImageView.h; sourceTree = "<group>"; };
 		1964649718713F07008E1A71 /* AFCircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFCircleImageView.m; sourceTree = "<group>"; };
+		19FCB69118731BF600F9D30B /* NoBirthdaySwitchIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NoBirthdaySwitchIndicator.png; path = ImageResources/FBFriendPickerView/NoBirthdaySwitchIndicator.png; sourceTree = "<group>"; };
+		19FCB6BA1873347600F9D30B /* HasBirthdaySwitchIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HasBirthdaySwitchIndicator.png; path = ImageResources/FBFriendPickerView/HasBirthdaySwitchIndicator.png; sourceTree = "<group>"; };
 		2A68590515C1E37E001D4EDD /* FBSettings+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBSettings+Internal.h"; sourceTree = "<group>"; };
 		5F0572B716156625008B54E6 /* FBAppEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAppEvents.h; sourceTree = "<group>"; };
 		5F0572B816156625008B54E6 /* FBAppEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FBAppEvents.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -1086,6 +1090,8 @@
 		99F1D7E617726FE600BEBF6F /* ImageResources */ = {
 			isa = PBXGroup;
 			children = (
+				19FCB6BA1873347600F9D30B /* HasBirthdaySwitchIndicator.png */,
+				19FCB69118731BF600F9D30B /* NoBirthdaySwitchIndicator.png */,
 				99F1D8051775396800BEBF6F /* FBDialog */,
 				99F1D80717753A6D00BEBF6F /* FBFriendPickerView */,
 				99F1D7E717726FF200BEBF6F /* FBLoginView */,
@@ -1721,6 +1727,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19FCB69318731D7A00F9D30B /* NoBirthdaySwitchIndicator.png in Sources */,
+				19FCB6BB187334C900F9D30B /* HasBirthdaySwitchIndicator.png in Sources */,
 				99CAF90317A326FF006B68A1 /* FBLoginViewButtonPressed.png in Sources */,
 				99BB518F1784C32F00AC8144 /* FBLoginViewButton.png in Sources */,
 				99F1D81417753D6200BEBF6F /* FBProfilePictureViewBlankProfilePortrait.png in Sources */,
@@ -1845,7 +1853,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/facebook_ios_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1867,7 +1878,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DSTROOT = /tmp/facebook_ios_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2005,7 +2019,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DSTROOT = /tmp/facebook_ios_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2104,7 +2121,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/facebook_ios_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
