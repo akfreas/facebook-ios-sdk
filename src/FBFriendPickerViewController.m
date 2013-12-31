@@ -435,6 +435,12 @@ int const FBRefreshCacheDelaySeconds = 2;
     }
 }
 
+- (void)graphObjectTableSelectionWillChange:(FBGraphObjectTableSelection *)selection {
+    if ([self.delegate respondsToSelector:@selector(friendPickerViewControllerSelectionWillChange:)]) {
+        [(id)self.delegate friendPickerViewControllerSelectionWillChange:self];
+    }
+}
+
 #pragma mark - FBGraphObjectViewControllerDelegate
 
 - (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource
