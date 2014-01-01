@@ -122,7 +122,9 @@
 {
     id<FBGraphObject> selectedItem = [FBUtility graphObjectInArray:self.selection withSameIDAs:item];
     if (selectedItem) {
-        [self selectionWillChange];
+        if (raiseSelectionChanged) {
+            [self selectionWillChange];
+        }
         NSMutableArray *selection = [[NSMutableArray alloc] initWithArray:self.selection];
         [selection removeObject:selectedItem];
         self.selection = selection;
