@@ -457,7 +457,12 @@ int const FBRefreshCacheDelaySeconds = 2;
 }
 
 - (BOOL)graphObjectTableDataSource:(FBGraphObjectTableDataSource *)dataSource itemHasBirthday:(id<FBGraphUser>)graphUser {
-    if (graphUser.birthday != nil) {
+    static NSDateFormatter *dateFormatter;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    }
+    if ([dateFormatter dateFromString:graphUser.birthday] != nil) {
         return YES;
     } else {
         return NO;
