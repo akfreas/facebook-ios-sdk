@@ -73,9 +73,7 @@
 
 - (void)clearSelectionInTableView:(UITableView*)tableView {
     if (self.selection.count > 0) {
-        [self selectionWillChange];
         [self deselectItems:self.selection tableView:tableView];
-        [self selectionDidChange];
     }
 }
 
